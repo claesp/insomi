@@ -1,0 +1,8 @@
+
+Build
+-----
+docker build -t insomi .
+
+Run
+---
+docker run -it --rm --name insomi insomi
