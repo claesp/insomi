@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"os"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/template/html/v2"
 )
 
 var (
@@ -13,14 +13,21 @@ var (
 )
 
 func main() {
-	fmt.Fprintf(os.Stdout, "%s\n", Version)
+	engine := html.New("./views", ".html")
+	app := fiber.New(fiber.Config{
+		Views:       engine,
+		ViewsLayout: "layouts/main",
+	})
 
-	app := fiber.New()
+	app.Static("/lib", "./lib")
 
 	app.Get("/", root)
+
 	app.Listen(fmt.Sprintf(":%s", Port))
 }
 
 func root(c *fiber.Ctx) error {
-	return c.SendString("hello world")
+	return c.Render("index", fiber.Map{
+		"Title": "hello world",
+	})
 }
