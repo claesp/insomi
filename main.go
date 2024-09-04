@@ -21,13 +21,9 @@ func main() {
 
 	app.Static("/lib", "./lib")
 
-	app.Get("/", root)
+	app.Get("/", getRoot)
+	app.Get("/auth", getAuth)
+	app.Get("/auth/apple", getAuthApple)
 
 	app.Listen(fmt.Sprintf(":%s", Port))
-}
-
-func root(c *fiber.Ctx) error {
-	return c.Render("index", fiber.Map{
-		"Title": "hello world",
-	})
 }
