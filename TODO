@@ -1,0 +1,18 @@
+- Authentication
+  - Providers
+    - Apple
+    - Google
+    - Meta?
+    - X?
+    - Alibaba?
+    - Yandex?
+  - Save user information as a user account.
+- Teams
+  - If not a member of a team, offer to create one.
+  - Create team.
+  - Rename team.
+  - Delete team.
+- Projects
+  - If no projects exists, offer to create one.
+  - Rename project.
+  - Delete project.
